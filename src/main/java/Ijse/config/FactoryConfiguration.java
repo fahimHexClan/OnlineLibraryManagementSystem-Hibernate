@@ -1,6 +1,6 @@
 package Ijse.config;
 
-import lk.Ijse.Entity.StudentEntity;
+import Ijse.Entity.AdminEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -11,7 +11,7 @@ public class FactoryConfiguration {
 
     private FactoryConfiguration() {
         Configuration configuration = new Configuration().configure("Hibernate.xml")
-                .addAnnotatedClass(StudentEntity.class);
+                .addAnnotatedClass(AdminEntity.class);
 
         sessionFactory = configuration.buildSessionFactory();
     }

@@ -12,9 +12,8 @@ public class Launcher extends Application {
     }
     @Override
     public void start(Stage stage) throws Exception {
-        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/StudentDetailsForm.fxml"));
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/LogInForm.fxml"));
         Scene scene = new Scene(rootNode);
-        scene.getStylesheets().add(getClass().getResource("/Css/app.css").toExternalForm());
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.show();
