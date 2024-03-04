@@ -21,7 +21,7 @@ public class AdminDaoImpl implements AdminDao {
     public boolean checkAdmin(AdminEntity adminEntity) {
         try (Session session = FactoryConfiguration.getInstance().getSession()) {
             Transaction transaction = session.beginTransaction();
-            AdminEntity user = session.createQuery("FROM AdminEntity WHERE id = :id AND Password = :password", AdminEntity.class)
+            AdminEntity user = session.createQuery("FROM AdminEntity WHERE id = :id AND password = :password", AdminEntity.class)
                     .setParameter("id", adminEntity.getId())
                     .setParameter("password", adminEntity.getPassword())
                     .uniqueResult();
@@ -46,5 +46,3 @@ public class AdminDaoImpl implements AdminDao {
 
 
 }
-
-

@@ -29,8 +29,6 @@ public class AdminBoImpl implements AdminBo {
     }
     public int getGeneratedId() {
         //database eke thiyana id eka genarate karala ganna  metanin method eka call karanawa
-            return adminDao.getGeneratedId();
+        return adminDao.getGeneratedId();
     }
 }
-
-

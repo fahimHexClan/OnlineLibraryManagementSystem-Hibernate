@@ -10,7 +10,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -75,7 +74,7 @@ public class SignUpPageController {
 
     void navigateToLogInPage(ActionEvent actionEvent) throws IOException {
         // fxml file eka load karanawa  ,path eka set karanawa
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/LogInForm.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/AdminLogInForm.fxml"));
         Parent root = loader.load();
 
         // scene eka set karala ekata root eka assign karanawa

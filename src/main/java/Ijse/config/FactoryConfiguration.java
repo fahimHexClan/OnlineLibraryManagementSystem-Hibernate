@@ -1,8 +1,9 @@
 package Ijse.config;
 
-import Ijse.Entity.AdminEntity;
+import Ijse.Entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 public class FactoryConfiguration {
@@ -11,7 +12,9 @@ public class FactoryConfiguration {
 
     private FactoryConfiguration() {
         Configuration configuration = new Configuration().configure("Hibernate.xml")
-                .addAnnotatedClass(AdminEntity.class);
+                .addAnnotatedClass(AdminEntity.class).addAnnotatedClass(UserEntity.class)
+                .addAnnotatedClass(BookEntity.class).addAnnotatedClass(LibraryBranchEntity.class)
+                .addAnnotatedClass(TransactionEntity.class);
 
         sessionFactory = configuration.buildSessionFactory();
     }

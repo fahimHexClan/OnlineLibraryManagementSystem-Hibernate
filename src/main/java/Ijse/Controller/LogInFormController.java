@@ -63,7 +63,7 @@ public class LogInFormController {
 
 
     public void SignupOnAction(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/SignUpPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/AdminSignUpPage.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
