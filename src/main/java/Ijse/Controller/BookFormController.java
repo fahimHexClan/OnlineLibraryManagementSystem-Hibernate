@@ -1,7 +1,11 @@
 package Ijse.Controller;
 
+import Ijse.Bo.custom.BookBo;
+import Ijse.Bo.custom.impl.BookBoImpl;
+import Ijse.Dto.BookDto;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -19,8 +23,31 @@ public class BookFormController {
     public TableColumn tblAuthor;
     public TableColumn tblgenre;
     public TableColumn tblStatus;
+    BookBo bookBo=new BookBoImpl();
 
     public void SaveOnAction(ActionEvent actionEvent) {
+        BookDto bookDto = new BookDto();
+        bookDto.setId(Long.valueOf(txtId.getText()));
+        bookDto.setTitle(txtTitle.getText());
+        bookDto.setAuthor(txtAuthor.getText());
+        bookDto.setGenre(ComboGenre.getItems().toString());
+        bookDto.setAvailable(Boolean.parseBoolean(ComboIsAvailable.getItems().toString()));
+
+        if (bookBo.saveUser(bookDto)) {
+            loadAllUsers();
+            ClearOnAction();
+            showAlert(Alert.AlertType.INFORMATION, "User Added", "User has been added successfully.");
+        } else {
+            showAlert(Alert.AlertType.ERROR, "Error", "Failed to add user.");
+        }
+    }
+
+    private void showAlert(Alert.AlertType alertType, String error, String s) {
+
+
+    }
+
+    private void loadAllUsers() {
     }
 
     public void DeleteOnAction(ActionEvent actionEvent) {
@@ -32,6 +59,6 @@ public class BookFormController {
     public void SearchOnAction(ActionEvent actionEvent) {
     }
 
-    public void ClearOnAction(ActionEvent actionEvent) {
+    public void ClearOnAction() {
     }
 }
