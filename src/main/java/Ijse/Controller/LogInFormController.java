@@ -11,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.RadioButton;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -18,6 +19,9 @@ import java.io.IOException;
 public class LogInFormController {
     public JFXPasswordField txtPassword;
     public JFXTextField txtId;
+    public JFXTextField txtShowPassword;
+    public RadioButton btnRadio;
+    boolean passClicked;
 
 
     public void LogInOnAction(ActionEvent actionEvent) throws IOException {
@@ -71,4 +75,23 @@ public class LogInFormController {
         stage.show();
 
     }
-}
+
+    public void btnRadioOnAction(ActionEvent actionEvent) {
+
+
+        if (!passClicked) {
+            passClicked = true;
+            String passwordText = txtPassword.getText();
+            txtPassword.setVisible(false);
+            txtPassword.setManaged(false);
+            txtShowPassword.setText(passwordText);
+            txtShowPassword.setVisible(true);
+            txtShowPassword.setManaged(true);
+        } else {
+            passClicked = false;
+            txtPassword.setVisible(true);
+            txtPassword.setManaged(true);
+            txtShowPassword.setVisible(false);
+            txtShowPassword.setManaged(false);
+        }
+    }}

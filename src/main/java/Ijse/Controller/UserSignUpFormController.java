@@ -22,9 +22,18 @@ public class UserSignUpFormController {
     public JFXTextField txtAddress;
     public JFXTextField txtId;
     private UserBo userBo = new UserBoImpl();
+    public void initialize() {
+        int maxId = userBo.getMaxUserId();
+        // Increment the maximum ID to generate the next ID
+        int nextId = maxId + 1;
+
+        // Set the next ID in the txtId text field
+        txtId.setText(String.valueOf(nextId));
+    }
 
 
     public void SignInOnAction(ActionEvent actionEvent) throws IOException {
+
 
             String id = txtId.getText();
             String name = txtName.getText();

@@ -65,18 +65,16 @@ public class UserBoImpl implements UserBo {
     }
 
     @Override
-    public List<UserDto> searchStudent(String keyword) {
-        List<UserDto> userDtoList = new ArrayList<>();
-        List<UserEntity> userEntityList = userDao.searchStudent(keyword);
-        for (UserEntity userEntity : userEntityList) {
-            UserDto userDto = new UserDto();
-            userDto.setId(userEntity.getId());
-            userDto.setName(userEntity.getName());
-            userDto.setEmail(userEntity.getEmail());
-            userDto.setAddress(userEntity.getAddress());
-            userDtoList.add(userDto);
+    public List<UserDto> searchUser(String keyword) {
+        List<UserEntity> userEntities = userDao.searchUser(keyword);
+        List<UserDto> userDtos = new ArrayList<>();
+        for (UserEntity entity : userEntities) {
+            userDtos.add(new UserDto(entity.getId(), entity.getName(), entity.getAddress(), entity.getEmail()));
         }
-        return userDtoList;
+        return userDtos;
+    }
+    public int getMaxUserId() {
+        return userDao.getMaxUserId();
     }
 
 }

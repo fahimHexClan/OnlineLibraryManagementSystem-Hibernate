@@ -18,7 +18,8 @@ public interface UserDao {
 
     boolean checkUser(UserEntity userEntity);
 
-    List<UserEntity> searchStudent(String keyword);
+    List<UserEntity> searchUser(String keyword);
 
+    int getMaxUserId();
 }
 

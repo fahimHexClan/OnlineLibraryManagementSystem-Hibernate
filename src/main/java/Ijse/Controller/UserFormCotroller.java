@@ -4,7 +4,6 @@ package Ijse.Controller;
 import Ijse.Bo.custom.UserBo;
 import Ijse.Bo.custom.impl.UserBoImpl;
 import Ijse.Dto.UserDto;
-import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import jakarta.transaction.SystemException;
 import javafx.collections.FXCollections;
@@ -14,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -47,6 +47,18 @@ public class UserFormCotroller {
     @FXML
     private JFXTextField txtName;
     UserBo userBo = new UserBoImpl();
+    @FXML
+    private void initialize() {
+        // Initialize the columns in the table
+        tblId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        tblName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        tblEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        tblAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+
+        // Load all users into the table
+        loadAllUsers();
+    }
+
 
 
     @FXML
@@ -101,7 +113,7 @@ public class UserFormCotroller {
     @FXML
     void SearchOnAction(ActionEvent event) {
         String keyword = txtId.getText();
-        List<UserDto> userDtos = userBo.searchStudent(keyword);
+        List<UserDto> userDtos = userBo.searchUser(keyword);
 
         if (userDtos.isEmpty()) {
             new Alert(Alert.AlertType.INFORMATION, "No matching records found").show();
@@ -111,7 +123,7 @@ public class UserFormCotroller {
             txtId.setText(String.valueOf(firstResult.getId()));
             txtName.setText(firstResult.getName());
             txtAddress.setText(firstResult.getAddress());
-            txtEmail.setText(firstResult.getEmail()); // Corrected to txtEmail
+            txtEmail.setText(firstResult.getEmail());
         }
     }
 

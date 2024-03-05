@@ -11,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.RadioButton;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,6 +20,9 @@ public class UserLogInController {
 
     public JFXPasswordField txtPassword;
     public JFXTextField txtId;
+    public RadioButton btnRadio;
+    public JFXTextField txtShowPassword;
+    boolean passClicked;
     private UserBo userBo = new UserBoImpl();
 
 
@@ -61,5 +65,20 @@ public class UserLogInController {
         // a stage ekata scene eka set karla show karnawa
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void btnRadioOnAction(ActionEvent actionEvent) {
+        if (!passClicked) {
+            passClicked = true;
+            String passwordText = txtPassword.getText();
+            txtShowPassword.setText(passwordText);
+            txtPassword.setVisible(false);
+            txtShowPassword.setVisible(true);
+        } else {
+            passClicked = false;
+            txtPassword.setVisible(true);
+            txtShowPassword.setVisible(false);
+        }
+
     }
 }

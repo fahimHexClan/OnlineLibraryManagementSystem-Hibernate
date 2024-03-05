@@ -16,5 +16,7 @@ public interface UserBo {
 
     boolean checkUser(UserDto userDto);
 
-    List<UserDto> searchStudent(String keyword);
+    List<UserDto> searchUser(String keyword);
+
+    int getMaxUserId();
 }

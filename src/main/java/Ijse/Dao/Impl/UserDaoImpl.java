@@ -6,7 +6,9 @@ import Ijse.Entity.UserEntity;
 import Ijse.config.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserDaoImpl implements UserDao {
@@ -75,20 +77,27 @@ public class UserDaoImpl implements UserDao {
         }
     }
     @Override
-    public List<UserEntity> searchStudent(String keyword) {
+    public List<UserEntity> searchUser(String keyword) {
         try (Session session = FactoryConfiguration.getInstance().getSession()) {
-            return session.createQuery("FROM UserEntity WHERE id = :keyword OR name LIKE :keyword OR email LIKE :keyword OR address LIKE :keyword", UserEntity.class)
-                    .setParameter("keyword", "%" + keyword + "%")
-                    .list();
+            Query<UserEntity> query = session.createQuery("FROM UserEntity WHERE id = :id OR name LIKE :name OR address LIKE :address OR email LIKE :email");
+            query.setParameter("id", Integer.parseInt(keyword));
+            query.setParameter("address", "%" + keyword + "%");
+            query.setParameter("name", "%" + keyword + "%");
+            query.setParameter("email", "%" + keyword + "%");
+            return query.getResultList();
         } catch (Exception e) {
             e.printStackTrace();
-            return null;
+            return new ArrayList<>();
         }
     }
-
-
-
-}
+    public int getMaxUserId() {
+        try (Session session = FactoryConfiguration.getInstance().getSession()) {
+            return session.createQuery("SELECT COALESCE(MAX(u.id), 0) FROM UserEntity u", Integer.class).uniqueResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }}
 
 
 
