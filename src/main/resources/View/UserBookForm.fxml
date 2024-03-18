@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.UserBookFormController">
+   <children>
+      <AnchorPane layoutX="-5.0" layoutY="-1.0" prefHeight="811.0" prefWidth="1206.0" style="-fx-background-color: white;">
+         <children>
+            <Pane layoutX="35.0" layoutY="132.0" prefHeight="506.0" prefWidth="1006.0" style="-fx-background-color: #e3ebef; -fx-background-radius: 30;" styleClass="shadow" stylesheets="@../Style/Shadow.css">
+               <children>
+                  <TableView fx:id="tblBooks" layoutX="28.0" layoutY="50.0" prefHeight="406.0" prefWidth="909.0">
+                     <columns>
+                        <TableColumn fx:id="IdColumn" prefWidth="75.0" text="Book_ID" />
+                        <TableColumn fx:id="TitleColumn" prefWidth="192.1436767578125" text="Book_Title" />
+                        <TableColumn fx:id="AuthorColumn" prefWidth="205.0009765625" text="Book_Author" />
+                        <TableColumn fx:id="GenerColumn" prefWidth="171.4293212890625" text="Book_Genre" />
+                        <TableColumn fx:id="StatusColumn" prefWidth="216.282958984375" text="Book_Availability_status " />
+                     </columns>
+                  </TableView>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="30.0" layoutY="24.0" prefHeight="52.0" prefWidth="217.0" style="-fx-background-color: #808e9b; -fx-background-radius: 30;" styleClass="shadow" stylesheets="@../Style/Shadow.css">
+         <children>
+            <Label layoutX="18.0" layoutY="9.0" styleClass="shadow" stylesheets="@../Style/Shadow.css" text="Books Section" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.DashboardController">
+   <children>
+      <AnchorPane layoutX="-11.0" layoutY="-56.0" prefHeight="811.0" prefWidth="1194.0" style="-fx-background-color: #eeeee4;">
+         <children>
+            <Pane layoutX="113.0" layoutY="292.0" prefHeight="170.0" prefWidth="317.0" style="-fx-background-color: #e3ebef;" styleClass="shadow" stylesheets="@../Style/Shadow.css">
+               <children>
+                  <Label layoutX="27.0" layoutY="29.0" prefHeight="50.0" prefWidth="235.0" styleClass="shadow" stylesheets="@../Style/Shadow.css" text="Book Types" textFill="#3b2b2b">
+                     <font>
+                        <Font name="System Bold" size="34.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="BookCount" layoutX="137.0" layoutY="89.0" prefHeight="50.0" prefWidth="216.0" styleClass="shadow" stylesheets="@../Style/Shadow.css" text="2" textFill="#a92424">
+                     <font>
+                        <Font name="System Bold" size="34.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="111.0" layoutY="533.0" prefHeight="169.0" prefWidth="317.0" style="-fx-background-color: #e3ebef;" styleClass="shadow" stylesheets="@../Style/Shadow.css">
+               <children>
+                  <Label layoutX="70.0" layoutY="28.0" prefHeight="50.0" prefWidth="216.0" styleClass="shadow" stylesheets="@../Style/Shadow.css" text="User Count" textFill="#2b363b">
+                     <font>
+                        <Font name="System Bold" size="34.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="UserCount" layoutX="140.0" layoutY="88.0" prefHeight="50.0" prefWidth="216.0" styleClass="shadow" stylesheets="@../Style/Shadow.css" text="2" textFill="#a92424">
+                     <font>
+                        <Font name="System Bold" size="34.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <AnchorPane layoutX="203.0" layoutY="94.0" prefHeight="124.0" prefWidth="744.0" style="-fx-background-color: #808e9b; -fx-background-radius: 30;" styleClass="shadow" stylesheets="@../Style/Shadow.css">
+               <children>
+                  <Label layoutX="18.0" layoutY="15.0" styleClass="shadow" stylesheets="@../Style/Shadow.css" text="WELCOME TO Library Management" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="NameLabel" layoutX="117.0" layoutY="59.0" prefHeight="51.0" prefWidth="196.0" styleClass="shadow" stylesheets="@../Style/Shadow.css" text="Rana:" textFill="#a1ff43">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="440.0" fitWidth="554.0" layoutX="508.0" layoutY="261.0" pickOnBounds="true" smooth="false">
+               <image>
+                  <Image url="@../Asset/lib.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

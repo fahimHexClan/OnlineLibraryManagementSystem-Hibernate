@@ -47,6 +47,11 @@
             <artifactId>lombok</artifactId>
             <version>1.18.22</version> <!-- Use the appropriate version -->
         </dependency>
+        <dependency>
+            <groupId>org.controlsfx</groupId>
+            <artifactId>controlsfx</artifactId>
+            <version>11.1.0</version>
+        </dependency>
 
 
     </dependencies>
